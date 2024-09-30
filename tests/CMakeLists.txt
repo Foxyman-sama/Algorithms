@@ -1,1 +1,1 @@
-add_subdirectory(ds)
+add_subdirectory(dynamic_array)
