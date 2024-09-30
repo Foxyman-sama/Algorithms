@@ -14,12 +14,4 @@ struct DynamicArray create_array(int capacity) {
   return result;
 }
 
-inline void push_back(struct DynamicArray* array, int val) { array->ptr[array->size++] = val; }
-
-inline void clear(struct DynamicArray* array) {
-  if (array->ptr != NULL) {
-    free(array->ptr);
-  }
-}
-
 #endif
