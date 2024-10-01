@@ -27,9 +27,9 @@ inline void clear_array(struct DynamicArray* array) {
   array->capacity = 0;
 }
 
-inline void insert_into_array(struct DynamicArray* array, int index, int elem) {
+inline bool insert_into_array(struct DynamicArray* array, int index, int elem) {
   if (index < 0 || index > array->size) {
-    abort();
+    return false;
   }
 
   if (array->capacity <= array->size) {
@@ -52,6 +52,8 @@ inline void insert_into_array(struct DynamicArray* array, int index, int elem) {
   }
 
   ++array->size;
+
+  return true;
 }
 
 inline void remove_from_array(struct DynamicArray* array, int index) {

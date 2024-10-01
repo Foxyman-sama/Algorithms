@@ -41,7 +41,13 @@ TEST_F(dynamic_array_tests, insert_into_dynamic_array_using_bad_index) {
   struct DynamicArray array = create_array(1);
 
   insert_into_array(&array, 0, 321);
-  ASSERT_DEATH(insert_into_array(&array, 2, 5), "");
+  ASSERT_EQ(false, insert_into_array(&array, 2, 5));
+}
+
+TEST_F(dynamic_array_tests, insert_into_empty_dynamic_array_with_bad_index) {
+  struct DynamicArray array = create_array(1);
+
+  ASSERT_EQ(false, insert_into_array(&array, 1, 321));
 }
 
 TEST_F(dynamic_array_tests, remove_from_dynamic_array) {
