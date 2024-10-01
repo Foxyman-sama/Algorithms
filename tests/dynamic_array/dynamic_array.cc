@@ -12,7 +12,7 @@ int main() {
 class dynamic_array_tests : public testing::Test {};
 
 TEST_F(dynamic_array_tests, create_and_clear_dynamic_array) {
-  struct DynamicArray array = create_array(10);
+  DynamicArray array = create_array(10);
   clear_array(&array);
 
   ASSERT_EQ(array.ptr, nullptr);
@@ -21,11 +21,11 @@ TEST_F(dynamic_array_tests, create_and_clear_dynamic_array) {
 }
 
 TEST_F(dynamic_array_tests, create_dynamic_array_using_bad_index) {
-  ASSERT_DEATH({ struct DynamicArray array = create_array(0); }, "");
+  ASSERT_DEATH({ DynamicArray array = create_array(0); }, "");
 }
 
 TEST_F(dynamic_array_tests, insert_into_dynamic_array) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   insert_into_array(&array, 0, 321);
   insert_into_array(&array, 1, 5);
@@ -38,20 +38,20 @@ TEST_F(dynamic_array_tests, insert_into_dynamic_array) {
 }
 
 TEST_F(dynamic_array_tests, insert_into_dynamic_array_using_bad_index) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   insert_into_array(&array, 0, 321);
   ASSERT_EQ(false, insert_into_array(&array, 2, 5));
 }
 
 TEST_F(dynamic_array_tests, insert_into_empty_dynamic_array_with_bad_index) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   ASSERT_EQ(false, insert_into_array(&array, 1, 321));
 }
 
 TEST_F(dynamic_array_tests, remove_from_dynamic_array) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   insert_into_array(&array, 0, 321);
   insert_into_array(&array, 1, 5);
@@ -65,7 +65,7 @@ TEST_F(dynamic_array_tests, remove_from_dynamic_array) {
 }
 
 TEST_F(dynamic_array_tests, remove_from_dynamic_array_using_bad_index) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   insert_into_array(&array, 0, 321);
 
@@ -73,20 +73,20 @@ TEST_F(dynamic_array_tests, remove_from_dynamic_array_using_bad_index) {
 }
 
 TEST_F(dynamic_array_tests, remove_from_empty_dynamic_array) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
 
   ASSERT_EQ(false, remove_from_array(&array, 0));
 }
 
 TEST_F(dynamic_array_tests, get_element_from_dynamic_array) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
   insert_into_array(&array, 0, 321);
 
   ASSERT_EQ(321, get(&array, 0));
 }
 
 TEST_F(dynamic_array_tests, get_element_from_dynamic_array_using_bad_index) {
-  struct DynamicArray array = create_array(1);
+  DynamicArray array = create_array(1);
   insert_into_array(&array, 0, 321);
 
   ASSERT_DEATH(get(&array, 1), "");

@@ -4,4 +4,6 @@ project(Algorithms)
 add_executable(${PROJECT_NAME} main.c)
 
 enable_testing()
+
 add_subdirectory(tests)
+add_subdirectory(ds)

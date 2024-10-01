@@ -14,6 +14,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 target_link_libraries(${PROJECT_NAME} PUBLIC
     GTest::gtest_main
     GTest::gmock_main
+    data_structures
 )
 
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
