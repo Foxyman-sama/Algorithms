@@ -1,9 +1,8 @@
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
 
+#include <stdbool.h>
 #include <stdlib.h>
-
-#include <cstdlib>
 
 struct DynamicArray {
   int* ptr;
@@ -11,14 +10,7 @@ struct DynamicArray {
   int capacity;
 };
 
-inline struct DynamicArray create_array(int capacity) {
-  if (capacity < 1) {
-    abort();
-  }
-
-  struct DynamicArray result = { (int*)calloc(capacity, sizeof(int)), 0, capacity };
-  return result;
-}
+struct DynamicArray create_array(int capacity);
 
 inline void clear_array(struct DynamicArray* array) {
   free(array->ptr);
