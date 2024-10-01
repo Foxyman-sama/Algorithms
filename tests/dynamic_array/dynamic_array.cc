@@ -69,7 +69,13 @@ TEST_F(dynamic_array_tests, remove_from_dynamic_array_using_bad_index) {
 
   insert_into_array(&array, 0, 321);
 
-  ASSERT_DEATH(remove_from_array(&array, 1), "");
+  ASSERT_EQ(false, remove_from_array(&array, 1));
+}
+
+TEST_F(dynamic_array_tests, remove_from_empty_dynamic_array) {
+  struct DynamicArray array = create_array(1);
+
+  ASSERT_EQ(false, remove_from_array(&array, 0));
 }
 
 TEST_F(dynamic_array_tests, get_element_from_dynamic_array) {

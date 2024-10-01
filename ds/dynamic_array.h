@@ -56,9 +56,9 @@ inline bool insert_into_array(struct DynamicArray* array, int index, int elem) {
   return true;
 }
 
-inline void remove_from_array(struct DynamicArray* array, int index) {
+inline bool remove_from_array(struct DynamicArray* array, int index) {
   if (index < 0 || index >= array->size) {
-    abort();
+    return false;
   }
 
   if (index != array->size) {
@@ -73,6 +73,8 @@ inline void remove_from_array(struct DynamicArray* array, int index) {
   }
 
   --array->size;
+
+  return true;
 }
 
 inline int get(struct DynamicArray* array, int index) {
