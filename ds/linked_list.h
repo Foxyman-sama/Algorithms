@@ -31,7 +31,16 @@ LinkedList create_linked_list() {
 }
 
 void clear_linked_list(LinkedList* list) {
-  // Clear list
+  Link current = list->head;
+  while (current != list->tail) {
+    Link temp = current;
+    current = current->next;
+    free(temp);
+  }
+
+  if (list->head != list->tail) {
+    free(list->tail);
+  }
 
   free(list->head);
   list->head = NULL;
