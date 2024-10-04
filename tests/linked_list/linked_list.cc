@@ -107,3 +107,37 @@ TEST_F(linked_list_tests, remove_elements_from_the_middle) {
   ASSERT_EQ(list.tail->value, 7);
   ASSERT_EQ(list.size, 2);
 }
+
+TEST_F(linked_list_tests, get_first_element) {
+  LinkedList list = create_linked_list();
+
+  insert_into_linked_list(&list, 0, 15);
+  insert_into_linked_list(&list, 1, 3);
+
+  int actual = get(&list, 0);
+
+  ASSERT_EQ(15, actual);
+}
+
+TEST_F(linked_list_tests, get_last_element) {
+  LinkedList list = create_linked_list();
+
+  insert_into_linked_list(&list, 0, 15);
+  insert_into_linked_list(&list, 1, 3);
+
+  int actual = get(&list, 1);
+
+  ASSERT_EQ(3, actual);
+}
+
+TEST_F(linked_list_tests, get_middle_element) {
+  LinkedList list = create_linked_list();
+
+  insert_into_linked_list(&list, 0, 15);
+  insert_into_linked_list(&list, 1, 3);
+  insert_into_linked_list(&list, 2, 7);
+
+  int actual = get(&list, 1);
+
+  ASSERT_EQ(3, actual);
+}

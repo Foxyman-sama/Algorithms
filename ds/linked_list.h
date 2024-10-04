@@ -79,4 +79,15 @@ void remove_from_linked_list(LinkedList* list, int index) {
   --list->size;
 }
 
+int get(LinkedList* list, int index) {
+  Link current = list->head;
+  int iter = 0;
+  while (iter != index) {
+    current = current->next;
+    ++iter;
+  }
+
+  return current->next->value;
+}
+
 #endif
