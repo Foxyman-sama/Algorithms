@@ -88,7 +88,7 @@ void remove_from_linked_list(LinkedList* list, int index) {
   --list->size;
 }
 
-int get(LinkedList* list, int index) {
+Item get(LinkedList* list, int index) {
   Link current = get_node(list, index);
   return current->next->value;
 }
