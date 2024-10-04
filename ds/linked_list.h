@@ -39,4 +39,25 @@ void clear_linked_list(LinkedList* list) {
   list->size = 0;
 }
 
+void insert_into_linked_list(LinkedList* list, int index, Item elem) {
+  Link new_node = (Link)malloc(sizeof(Node));
+  new_node->value = elem;
+
+  Link current = list->head;
+  int iter = 0;
+  while (iter != index) {
+    current = current->next;
+    ++iter;
+  }
+
+  new_node->next = current->next;
+  current->next = new_node;
+
+  if (index == list->size) {
+    list->tail = new_node;
+  }
+
+  ++list->size;
+}
+
 #endif
