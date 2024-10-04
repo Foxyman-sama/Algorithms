@@ -60,4 +60,23 @@ void insert_into_linked_list(LinkedList* list, int index, Item elem) {
   ++list->size;
 }
 
+void remove_from_linked_list(LinkedList* list, int index) {
+  Link current = list->head;
+  int iter = 0;
+  while (iter != index) {
+    current = current->next;
+    ++iter;
+  }
+
+  Link temp = current->next;
+  current->next = temp->next;
+  free(temp);
+
+  if (index == list->size - 1) {
+    list->tail = current;
+  }
+
+  --list->size;
+}
+
 #endif
