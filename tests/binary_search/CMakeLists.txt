@@ -15,6 +15,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     GTest::gtest_main
     GTest::gmock_main
     data_structures
+    algorithms
 )
 
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
