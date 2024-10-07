@@ -91,3 +91,16 @@ TEST_F(dynamic_array_tests, get_element_from_dynamic_array_using_bad_index) {
 
   ASSERT_DEATH(get(&array, 1), "");
 }
+
+TEST_F(dynamic_array_tests, dynamic_array_push_back_method) {
+  DynamicArray array = create_array(1);
+
+  push_back(&array, 1);
+  push_back(&array, 5);
+  push_back(&array, 10);
+
+  ASSERT_EQ(3, array.size);
+  ASSERT_EQ(1, array.ptr[0]);
+  ASSERT_EQ(5, array.ptr[1]);
+  ASSERT_EQ(10, array.ptr[2]);
+}

@@ -20,4 +20,6 @@ bool remove_from_array(DynamicArray* array, int index);
 
 int get(DynamicArray* array, int index);
 
+bool push_back(DynamicArray* array, int elem);
+
 #endif

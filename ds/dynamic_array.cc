@@ -72,3 +72,5 @@ int get(DynamicArray* array, int index) {
 
   return array->ptr[index];
 }
+
+bool push_back(DynamicArray* array, int elem) { return insert_into_array(array, array->size, elem); }
