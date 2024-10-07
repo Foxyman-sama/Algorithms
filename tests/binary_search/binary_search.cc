@@ -23,10 +23,11 @@ TEST_F(binary_search_tests, find_in_array_with_size_one) {
 
 TEST_F(binary_search_tests, find_in_array_with_size_four) {
   DynamicArray array = create_array(1);
-  insert_into_array(&array, 0, 1);
-  insert_into_array(&array, 1, 23);
-  insert_into_array(&array, 2, 33);
-  insert_into_array(&array, 3, 444);
+
+  push_back(&array, 1);
+  push_back(&array, 23);
+  push_back(&array, 33);
+  push_back(&array, 100);
 
   const int actual = binary_search(&array, 0, array.size - 1, 33);
 
